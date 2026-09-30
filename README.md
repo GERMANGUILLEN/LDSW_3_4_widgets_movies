@@ -1,17 +1,10 @@
-# hello_world_app
+# Hello World App - Flutter
 
-A new Flutter project.
+Este es mi primer proyecto en Flutter.  
+Muestra un título **"Welcome to Flutter"** en la barra superior y en el centro de la pantalla el texto **"Hello World"**.
 
-## Getting Started
+## 🚀 Cómo ejecutar
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/GERMANAGUILLEN/hello_world_app.git
