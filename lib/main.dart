@@ -10,65 +10,79 @@ class MovieCatalogApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Catálogo de Películas',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Catálogo de Películas')),
-        body: Column(
-          children: [
-            // Text: título de sección //
-            const Text(
-              'Películas Populares',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-            ),
+      debugShowCheckedModeBanner: false,
+      title: 'Movie Catalog',
+      home: const HomeScreen(),
+    );
+  }
+}
 
-            // Row: fila con íconos //
-            Row(
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          // Imagen de fondo //
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/movies_background.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+
+          // Capa oscura sobre la imagen //
+          Container(color: Colors.black54),
+
+          // Contenido principal //
+          Center(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Icon(Icons.movie, color: Colors.red),
-                SizedBox(width: 10),
-                Text('Explora tu catálogo'),
-              ],
-            ),
-
-            // Container: tarjeta de película //
-            Container(
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.blueGrey[50],
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                children: const [
-                  Text('Inception (2010)', style: TextStyle(fontSize: 18)),
-                  Text('Director: Christopher Nolan'),
-                ],
-              ),
-            ),
-
-            // Stack: imagen con texto encima //
-            Stack(
-              alignment: Alignment.bottomCenter,
               children: [
-                Container(
-                  width: 200,
-                  height: 300,
-                  color: Colors.black12,
-                  child: const Center(child: Text('Imagen de película')),
+                const Icon(
+                  Icons.movie_creation_outlined,
+                  size: 80,
+                  color: Colors.white,
                 ),
-                Container(
-                  color: Colors.black54,
-                  padding: const EdgeInsets.all(5),
-                  child: const Text(
-                    'Inception',
-                    style: TextStyle(color: Colors.white),
+
+                const SizedBox(height: 20),
+
+                const Text(
+                  'Movie Catalog',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 38,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
+
+                const SizedBox(height: 15),
+
+                const Text(
+                  'Bienvenido al catálogo de películas',
+                  style: TextStyle(color: Colors.white70, fontSize: 18),
+                ),
+
+                const SizedBox(height: 40),
+
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 15,
+                    ),
+                  ),
+                  child: const Text('Explorar Películas'),
+                ),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
