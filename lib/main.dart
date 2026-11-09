@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'pokemon_screen.dart';
+
 void main() {
   runApp(const MovieCatalogApp());
 }
@@ -70,7 +72,12 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 40),
 
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PokemonScreen()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,
