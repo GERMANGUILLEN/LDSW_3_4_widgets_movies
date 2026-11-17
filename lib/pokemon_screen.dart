@@ -10,7 +10,7 @@ class PokemonScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      AppBar(title: const Text('Datos obtenidos desde Internet')),
+      appBar: AppBar(title: const Text('Datos obtenidos desde Internet')),
       body: FutureBuilder<Map<String, dynamic>>(
         future: service.getPokemon(),
 

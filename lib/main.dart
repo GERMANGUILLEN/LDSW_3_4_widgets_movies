@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
+import 'firebase_options.dart';
 import 'pokemon_screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const MovieCatalogApp());
 }
 
@@ -27,7 +33,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Imagen de fondo //
+          // Imagen de fondo
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -37,10 +43,10 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Capa oscura sobre la imagen //
+          // Capa oscura
           Container(color: Colors.black54),
 
-          // Contenido principal //
+          // Contenido principal
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -78,12 +84,14 @@ class HomeScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => PokemonScreen()),
                     );
                   },
+
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,
                       vertical: 15,
                     ),
                   ),
+
                   child: const Text('Explorar Películas'),
                 ),
               ],

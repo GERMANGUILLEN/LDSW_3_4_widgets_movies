@@ -20,11 +20,11 @@ Stack: superposición de texto sobre imágenes.
 
 Clonar el repositorio:
 
-git clone https://github.com/GERMANGUILLEN/widgets_movies.git
+git clone https://github.com/GERMANGUILLEN/widgets\_movies.git
 
 Entrar a la carpeta del proyecto:
 
-cd widgets_movies
+cd widgets\_movies
 
 Ejecutar la aplicación:
 
@@ -54,4 +54,5 @@ Este proyecto demuestra el uso de widgets básicos en Flutter para construir int
 
 //Autor//
 
-Germán Aguillén - UdeG Virtual
+Germán Guillén - UdeG Virtual
+

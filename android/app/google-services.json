@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060169756986",
+    "project_id": "widgets-movies",
+    "storage_bucket": "widgets-movies.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060169756986:android:e8010705666615aa38e003",
+        "android_client_info": {
+          "package_name": "com.german.widgetsmovies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbb0TdXTTvLQg-C1KyN6_XbqWoVvRqku4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
