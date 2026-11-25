@@ -44,7 +44,7 @@ class MovieDetailScreen extends StatelessWidget {
 
               const Text(
                 'Sinopsis',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 10),

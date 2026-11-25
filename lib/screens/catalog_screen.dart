@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'movie_detail_screen.dart';
 import '../models/movie.dart';
 import '../services/firestore_service.dart';
+import 'movie_detail_screen.dart';
 
 class CatalogScreen extends StatelessWidget {
   CatalogScreen({super.key});
@@ -34,23 +34,69 @@ class CatalogScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final movie = movies[index];
 
-return Card(
-  margin: const EdgeInsets.all(10),
+              return Card(
+                margin: const EdgeInsets.all(10),
 
-  child: ListTile(
+                child: ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => MovieDetailScreen(movie: movie),
+                      ),
+                    );
+                  },
 
-    onTap: () {
+                  leading: Image.network(
+                    movie.imageUrl,
+                    width: 60,
+                    fit: BoxFit.cover,
+                  ),
 
-      Navigator.push(
-        context,
+                  title: Text(movie.title),
 
-        MaterialPageRoute(
-          builder: (_) =>
-              MovieDetailScreen(
-                  movie: movie),
-        ),
-      );
-    },
+                  subtitle: Text(movie.director),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.delete, color: Colors.red),
+
+                    onPressed: () async {
+                      final confirmar = await showDialog<bool>(
+                        context: context,
+
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text('Eliminar película'),
+
+                            content: Text('¿Deseas eliminar ${movie.title}?'),
+
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context, false);
+                                },
+
+                                child: const Text('Cancelar'),
+                              ),
+
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context, true);
+                                },
+
+                                child: const Text('Eliminar'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+
+                      if (confirmar == true) {
+                        await service.deleteMovie(movie.id);
+                      }
+                    },
+                  ),
+                ),
+              );
             },
           );
         },

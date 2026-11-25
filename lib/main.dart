@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'screens/catalog_screen.dart';
 import 'firebase_options.dart';
+import 'screens/catalog_screen.dart';
+import 'screens/admin_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,11 +51,23 @@ class HomeScreen extends StatelessWidget {
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+
               children: [
                 const Icon(
                   Icons.movie_creation_outlined,
                   size: 80,
                   color: Colors.white,
+                ),
+
+                const SizedBox(height: 20),
+
+                const Text(
+                  'Movie Catalog',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 38,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
 
                 const SizedBox(height: 15),
@@ -73,13 +86,37 @@ class HomeScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => CatalogScreen()),
                     );
                   },
+
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,
                       vertical: 15,
                     ),
                   ),
+
                   child: const Text('Explorar Películas'),
+                ),
+
+                const SizedBox(height: 15),
+
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AdminScreen(),
+                      ),
+                    );
+                  },
+
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 15,
+                    ),
+                  ),
+
+                  child: const Text('Administrar Catálogo'),
                 ),
               ],
             ),
