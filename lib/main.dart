@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'screens/catalog_screen.dart';
 import 'firebase_options.dart';
-import 'pokemon_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Imagen de fondo
+          // Imagen de fondo //
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -43,10 +43,10 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          // Capa oscura
+          // Capa oscura //
           Container(color: Colors.black54),
 
-          // Contenido principal
+          // Contenido principal //
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -55,17 +55,6 @@ class HomeScreen extends StatelessWidget {
                   Icons.movie_creation_outlined,
                   size: 80,
                   color: Colors.white,
-                ),
-
-                const SizedBox(height: 20),
-
-                const Text(
-                  'Movie Catalog',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 38,
-                    fontWeight: FontWeight.bold,
-                  ),
                 ),
 
                 const SizedBox(height: 15),
@@ -81,17 +70,15 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => PokemonScreen()),
+                      MaterialPageRoute(builder: (context) => CatalogScreen()),
                     );
                   },
-
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 30,
                       vertical: 15,
                     ),
                   ),
-
                   child: const Text('Explorar Películas'),
                 ),
               ],
